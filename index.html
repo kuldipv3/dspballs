@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ABC Bearings | Industrial & Automotive Bearings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary: #005baa;
+      --primary-dark: #00427f;
+      --accent: #f4b000;
+      --bg-light: #f5f7fb;
+      --text: #222;
+      --muted: #666;
+      --max-width: 1200px;
+      --radius: 10px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background-color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Top info bar */
+    .top-bar {
+      background: #0b1b30;
+      color: #dbe4ff;
+      font-size: 0.85rem;
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .top-bar-left,
+    .top-bar-right {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .top-bar-highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ffffffd9;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.15rem;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,91,170,0.35);
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      width: 20px;
+      height: 2px;
+      background: #222;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        background: #fff;
+        padding: 0.75rem 1.5rem 1rem;
+        border-bottom: 1px solid #edf0f7;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-cta {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      background: radial-gradient(circle at top left, #e3f0ff 0, #f5f7fb 50%, #ffffff 100%);
+      padding: 2.5rem 0 3rem;
+      border-bottom: 1px solid #edf0f7;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #eaf3ff;
+      color: var(--primary-dark);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.3rem;
+      font-size: 0.98rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid #e5e9f5;
+      font-size: 0.8rem;
+      color: #374151;
+    }
+
+    .pill-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.16);
+    }
+
+    .btn-secondary {
+      padding: 0.7rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5e5;
+      background: #fff;
+      color: #1f2933;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #f3f4ff;
+      border-color: var(--primary);
+    }
+
+    .hero-meta {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: #111827;
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 260px;
+    }
+
+    .hero-card {
+      position: relative;
+      background: #fff;
+      border-radius: 22px;
+      padding: 1.3rem 1.4rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid #e5ecf8;
+    }
+
+    .hero-ring {
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 14px solid #e5f0ff;
+      border-top-color: var(--primary);
+      opacity: 0.7;
+    }
+
+    .hero-bearing {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 8px solid #dde5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+      background: radial-gradient(circle at 30% 20%, #fff, #c1d6f6);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    .hero-bearing-inner {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 6px dashed #fff;
+      background: radial-gradient(circle at 50% 60%, #667799, #111827);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.8rem;
+      margin-top: 0.6rem;
+      color: var(--muted);
+    }
+
+    .hero-stats strong {
+      display: block;
+      color: #111827;
+      font-size: 1rem;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      background: #ecfdf3;
+      color: #166534;
+      font-size: 0.75rem;
+      margin-top: 0.7rem;
+    }
+
+    .hero-chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+    }
+
+    /* Search section */
+    .search-section {
+      padding: 2.5rem 0 2.8rem;
+      background: var(--bg-light);
+      border-top: 1px solid #edf0f7;
+      border-bottom: 1px solid #edf0f7;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+      font-size: 1.4rem;
+      color: #111827;
+    }
+
+    .section-header p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 28rem;
+    }
+
+    .search-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.1fr 1fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 1.2rem 1.3rem;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+      border: 1px solid #e3e8f5;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      color: #111827;
+    }
+
+    .card small {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      color: #4b5563;
+    }
+
+    input, select, textarea {
+      border-radius: 999px;
+      border: 1px solid #d1d5e5;
+      padding: 0.5rem 0.85rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      width: 100%;
+      outline: none;
+      background: #f9fafb;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    textarea {
+      border-radius: 12px;
+      min-height: 110px;
+      resize: vertical;
+      padding-top: 0.6rem;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+      background: #fff;
+      box-shadow: 0 0 0 1px rgba(0,91,170,0.15);
+    }
+
+    .btn-small {
+      font-size: 0.84rem;
+      padding: 0.55rem 1.1rem;
+    }
+
+    .search-results {
+      margin-top: 0.8rem;
+      max-height: 170px;
+      overflow-y: auto;
+      font-size: 0.82rem;
+    }
+
+    .result-item {
+      padding: 0.35rem 0;
+      border-bottom: 1px dashed #edf0f7;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .result-item:last-child {
+      border-bottom: none;
+    }
+
+    .result-label {
+      font-weight: 500;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 0.05rem 0.45rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 1024px) {
+      .search-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .search-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* About section */
+    .about {
+      padding: 3rem 0 2.7rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .about h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+      color: #111827;
+    }
+
+    .about p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .about-list {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .about-list li::before {
+      content: "●";
+      color: var(--primary);
+      font-size: 0.6rem;
+      margin-right: 0.5rem;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .soft-pill {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: #f3f4ff;
+      font-size: 0.78rem;
+      color: #1f2933;
+    }
+
+    .about-card {
+      background: radial-gradient(circle at top left, #003a75, #00152b);
+      color: #e5edff;
+      border-radius: 20px;
+      padding: 1.6rem 1.5rem;
+      box-shadow: 0 14px 32px rgba(15,23,42,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-card p {
+      font-size: 0.86rem;
+      color: #d1dbff;
+      margin-bottom: 1rem;
+    }
+
+    .about-kpi-row {
+      display: flex;
+      gap: 1.3rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .about-kpi strong {
+      display: block;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    .about-stamp {
+      position: absolute;
+      right: -20px;
+      bottom: -10px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 10px solid rgba(148,163,255,0.4);
+      border-right-color: #fbbf24;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Categories */
+    .categories {
+      padding: 2.7rem 0 2.7rem;
+      background: var(--bg-light);
+      border-top: 1px solid #edf0f7;
+      border-bottom: 1px solid #edf0f7;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.4rem;
+    }
+
+    .category-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 1.1rem 1rem;
+      border: 1px solid #e3e8f5;
+      box-shadow: 0 6px 14px rgba(15,23,42,0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .category-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .category-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.1rem;
+      color: #111827;
+    }
+
+    .category-card p {
+      flex: 1;
+      color: var(--muted);
+    }
+
+    .category-link {
+      margin-top: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    @media (max-width: 1024px) {
+      .category-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 500px) {
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* CTA strip */
+    .cta-strip {
+      padding: 2rem 0;
+      background: linear-gradient(to right, #0b1b30, #002858);
+      color: #e5edff;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-inner h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .cta-inner p {
+      font-size: 0.9rem;
+      color: #c3d0ff;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .cta-actions .btn-primary {
+      box-shadow: 0 10px 22px rgba(15,23,42,0.55);
+    }
+
+    .cta-ghost {
+      padding: 0.7rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(209,213,219,0.8);
+      background: transparent;
+      color: #e5edff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Contact */
+    .contact {
+      padding: 2.7rem 0 3rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2rem;
+    }
+
+    .contact h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.7rem;
+      color: #111827;
+    }
+
+    .contact p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-details {
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .contact-details span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .contact-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .contact-form .field-group-inline {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-form .field-group-inline .field {
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .contact-form .field {
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: #0b1b30;
+      color: #9ca3c7;
+      font-size: 0.8rem;
+      padding: 1.3rem 0;
+      border-top: 1px solid #111827;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #c3d0ff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-highlight">ISO 9001:2015 Certified</span>
+        <span>Global supplier of industrial & automotive bearings</span>
+      </div>
+      <div class="top-bar-right">
+        <span>📞 +91-99999-00000</span>
+        <span>✉️ info@abcbearings.com</span>
+      </div>
+    </div>
+  </div>
+
+    <!-- Header / Nav -->
+    <header>
+      <div class="container nav">
+        <a href="#top" class="logo">
+          <div class="logo-mark">AB</div>
+          <div>
+            ABC Bearings<br>
+            <span style="font-size: 0.7rem; font-weight: 500; color:#6b7280;">Industrial Motion Solutions</span>
+          </div>
+        </a>
+
+        <nav>
+          <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="nav-links" id="navLinks">
+            <a href="#search">Search</a>
+            <a href="#about">Company</a>
+            <a href="#categories">Products</a>
+            <a href="#contact">Contact</a>
+            <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Get a Quote
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Worldwide bearing exporter
+          </div>
+          <h1>
+            Trusted <span>bearing partner</span> for every industry.
+          </h1>
+          <p class="hero-subtitle">
+            ABC Bearings supplies deep groove, roller, housing units and special bearings manufactured to international standards and backed by rigorous quality checks.
+          </p>
+
+          <div class="hero-points">
+            <div class="pill">
+              <div class="pill-icon">✓</div>
+              Over 1,000,000 bearings in stock
+            </div>
+            <div class="pill">
+              <div class="pill-icon">✓</div>
+              Customers in 35+ countries
+            </div>
+            <div class="pill">
+              <div class="pill-icon">✓</div>
+              Dedicated technical support team
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="document.getElementById('search').scrollIntoView({behavior:'smooth'})">
+              Search Products →
+            </button>
+            <button class="btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+              Company profile
+            </button>
+          </div>
+
+          <div class="hero-meta">
+            <div>
+              <strong>ISO / DIN / ANSI compliant</strong>
+              Global standards for performance and reliability.
+            </div>
+            <div>
+              <strong>Same-day dispatch</strong>
+              For stock items confirmed before 3:00 PM IST.
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-bearing">
+              <div class="hero-bearing-inner"></div>
+            </div>
+            <div style="text-align:center; font-size:0.85rem; margin-bottom:0.4rem;">
+              Premium deep groove ball bearing
+            </div>
+            <div class="hero-stats">
+              <div class="hero-kpi">
+                <strong>35+</strong>
+                Export markets
+              </div>
+              <div class="hero-kpi">
+                <strong>40 yrs</strong>
+                Engineering experience
+              </div>
+            </div>
+            <div class="hero-chip">
+              <span class="hero-chip-dot"></span>
+              100% performance tested before dispatch
+            </div>
+            <div class="hero-ring"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section" id="search">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Search bearings by code or dimensions</h2>
+          </div>
+          <p>
+            Use the quick search to find standard series by designation or filter by inner / outer diameter and width for dimensional matching.
+          </p>
+        </div>
+
+        <div class="search-grid">
+          <!-- Search by product code/name -->
+          <div class="card">
+            <h3>Search by product code</h3>
+            <small>Type at least 2 characters of the bearing code or name.</small>
+            <div class="field-group">
+              <label for="codeSearch">Product code / name</label>
+              <input id="codeSearch" type="text" placeholder="e.g. 6204, 22207, UCFL204" oninput="filterByCode()" />
+            </div>
+            <div class="search-results" id="codeResults"></div>
+          </div>
+
+          <!-- Search by dimensions -->
+          <div class="card">
+            <h3>Search by dimensions</h3>
+            <small>Enter dimensions in millimetres (mm).</small>
+            <div class="field-group">
+              <label for="dimID">Inner diameter (d)</label>
+              <input id="dimID" type="number" min="0" step="0.1" placeholder="e.g. 20" />
+            </div>
+            <div class="field-group">
+              <label for="dimOD">Outer diameter (D)</label>
+              <input id="dimOD" type="number" min="0" step="0.1" placeholder="e.g. 47" />
+            </div>
+            <div class="field-group">
+              <label for="dimWidth">Width (B)</label>
+              <input id="dimWidth" type="number" min="0" step="0.1" placeholder="e.g. 14" />
+            </div>
+            <button class="btn-primary btn-small" onclick="filterByDimensions()">Search dimensions</button>
+            <div class="search-results" id="dimensionResults"></div>
+          </div>
+
+          <!-- Quick enquiry -->
+          <div class="card">
+            <h3>Need technical help?</h3>
+            <small>Send a quick enquiry and our engineers will suggest the right bearing.</small>
+            <div class="field-group">
+              <label for="quickName">Your name</label>
+              <input id="quickName" type="text" placeholder="Name" />
+            </div>
+            <div class="field-group">
+              <label for="quickEmail">Email</label>
+              <input id="quickEmail" type="email" placeholder="email@company.com" />
+            </div>
+            <div class="field-group">
+              <label for="quickMessage">Application details</label>
+              <textarea id="quickMessage" rows="3" placeholder="Machine type, speed, load, environment..."></textarea>
+            </div>
+            <button class="btn-primary btn-small" onclick="alert('This is a demo. Integrate with your backend to receive enquiries.')">
+              Send enquiry
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow">Who we are</div>
+          <h2>ABC Bearings – Global bearing specialists</h2>
+          <p>
+            ABC Bearings is a fast-growing manufacturer and exporter of high-precision bearings. Our team combines decades of engineering experience with modern production and testing facilities.
+          </p>
+          <p>
+            We supply OEMs, distributors and end-users across automotive, agriculture, mining, cement, textiles and general engineering industries.
+          </p>
+
+          <ul class="about-list">
+            <li>ISO 9001:2015 certified quality management systems</li>
+            <li>Batch-wise traceability and 100% noise / vibration checks</li>
+            <li>Dedicated R&amp;D support for custom bearing solutions</li>
+          </ul>
+
+          <div class="badge-row">
+            <span class="soft-pill">Deep groove ball bearings</span>
+            <span class="soft-pill">Taper & spherical roller bearings</span>
+            <span class="soft-pill">Housing units &amp; insert bearings</span>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3>International bearing expert</h3>
+          <p>
+            From high-volume automotive bearings to low-volume specials, we focus on reliable performance, consistent quality and responsive service.
+          </p>
+          <div class="about-kpi-row">
+            <div class="about-kpi">
+              <strong>1M+</strong>
+              Bearings in ready stock
+            </div>
+            <div class="about-kpi">
+              <strong>40+</strong>
+              Years of application know-how
+            </div>
+          </div>
+          <div class="about-kpi-row">
+            <div class="about-kpi">
+              <strong>35+</strong>
+              Countries supplied
+            </div>
+            <div class="about-kpi">
+              <strong>24h</strong>
+              Typical enquiry response time
+            </div>
+          </div>
+          <div class="about-stamp"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Key product categories</h2>
+          </div>
+          <p>
+            Explore a focused range of standard and application-specific bearings. Full catalogues and datasheets are available on request.
+          </p>
+        </div>
+
+        <div class="category-grid">
+          <div class="category-card">
+            <div class="category-icon">⚙️</div>
+            <h3>Deep groove ball bearings</h3>
+            <p>
+              Single-row deep groove bearings for electric motors, pumps, gearboxes and general machinery.
+            </p>
+            <a href="#contact" class="category-link">Request series list →</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🌀</div>
+            <h3>Roller bearings</h3>
+            <p>
+              Spherical, cylindrical and taper roller bearings designed for heavy-duty radial and axial loads.
+            </p>
+            <a href="#contact" class="category-link">Ask about sizes →</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🏗️</div>
+            <h3>Bearing units &amp; housings</h3>
+            <p>
+              Pillow block, flange and take-up units in cast iron, pressed steel and thermoplastic designs.
+            </p>
+            <a href="#contact" class="category-link">Get housing options →</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🚜</div>
+            <h3>Agricultural bearings</h3>
+            <p>
+              Sealed bearings and inserts engineered for harsh agricultural environments and misalignment.
+            </p>
+            <a href="#contact" class="category-link">Share your OEM code →</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🚗</div>
+            <h3>Automotive bearings</h3>
+            <p>
+              Wheel hub, clutch release, tensioner and other automotive bearings for passenger and commercial vehicles.
+            </p>
+            <a href="#contact" class="category-link">Cross OEM references →</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">📏</div>
+            <h3>Linear motion</h3>
+            <p>
+              Linear bushings and guides for automation, packaging and material-handling systems.
+            </p>
+            <a href="#contact" class="category-link">Get technical datasheet →</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🔩</div>
+            <h3>Adapter sleeves &amp; accessories</h3>
+            <p>
+              Sleeves, locknuts, washers and other mounting components for metric and inch shafts.
+            </p>
+            <a href="#contact" class="category-link">Share shaft size →</a>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🧩</div>
+            <h3>Custom &amp; special bearings</h3>
+            <p>
+              Tailor-made solutions developed to suit unique load, speed and environment conditions.
+            </p>
+            <a href="#contact" class="category-link">Discuss your project →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA strip -->
+    <section class="cta-strip">
+      <div class="container cta-inner">
+        <div>
+          <h2>Ready to source your next bearing?</h2>
+          <p>
+            Share your bearing codes, dimensions or drawings and we’ll revert with pricing, lead time and technical suggestions.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Send RFQ →
+          </button>
+          <button class="cta-ghost" onclick="window.location.href='mailto:info@abcbearings.com'">
+            Email drawings ✉️
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="eyebrow">Contact</div>
+          <h2>Share your requirement</h2>
+          <p>
+            Fill in a few details about your requirement. Our sales and technical team will review the details and respond with the most suitable options.
+          </p>
+
+          <div class="contact-details">
+            <span><span class="contact-dot"></span> Phone: +91-99999-00000</span>
+            <span><span class="contact-dot"></span> Email: info@abcbearings.com</span>
+            <span><span class="contact-dot"></span> Address: Plot No. 123, Industrial Estate, City, Country</span>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form onsubmit="event.preventDefault(); alert('Form submitted (demo). Connect this to your backend / email.');">
+            <div class="field-group-inline">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" required placeholder="Your full name" />
+              </div>
+              <div class="field">
+                <label for="company">Company</label>
+                <input id="company" placeholder="Company / organization" />
+              </div>
+            </div>
+
+            <div class="field-group-inline">
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" required placeholder="email@company.com" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" placeholder="With country code" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="requirement">Requirement details</label>
+              <textarea id="requirement" required placeholder="Bearing codes, quantities, application details, delivery timeline..."></textarea>
+            </div>
+
+            <div class="field">
+              <label for="industry">Industry</label>
+              <select id="industry">
+                <option value="">Select industry (optional)</option>
+                <option>Automotive</option>
+                <option>Agriculture</option>
+                <option>Mining / Cement</option>
+                <option>Textile</option>
+                <option>General engineering</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <button class="btn-primary" type="submit">
+              Submit enquiry →
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> ABC Bearings. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#top">Home</a>
+          <a href="#about">Company</a>
+          <a href="#categories">Products</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple product dataset for demo search
+      const products = [
+        { code: "6004", name: "Deep groove ball bearing 6004", id: 20, od: 42, width: 12, type: "Ball bearing" },
+        { code: "6204", name: "Deep groove ball bearing 6204", id: 20, od: 47, width: 14, type: "Ball bearing" },
+        { code: "6306", name: "Deep groove ball bearing 6306", id: 30, od: 72, width: 19, type: "Ball bearing" },
+        { code: "22207", name: "Spherical roller bearing 22207", id: 35, od: 72, width: 23, type: "Spherical roller" },
+        { code: "30206", name: "Taper roller bearing 30206", id: 30, od: 62, width: 17, type: "Taper roller" },
+        { code: "UCFL204", name: "Flange bearing unit UCFL204", id: 20, od: 47, width: 31, type: "Bearing unit" }
+      ];
+
+      function renderResults(elementId, items) {
+        const container = document.getElementById(elementId);
+        if (!items.length) {
+          container.innerHTML = "<span style='color:#9ca3af'>No matching bearings found in demo data.</span>";
+          return;
+        }
+        container.innerHTML = items.map(item => `
+          <div class="result-item">
+            <div>
+              <div class="result-label">${item.code}</div>
+              <div>${item.name}</div>
+            </div>
+            <div style="text-align:right;">
+              <div><span class="tag">${item.type}</span></div>
+              <div>d: ${item.id} • D: ${item.od} • B: ${item.width} mm</div>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      function filterByCode() {
+        const q = document.getElementById("codeSearch").value.trim().toLowerCase();
+        if (q.length < 2) {
+          document.getElementById("codeResults").innerHTML =
+            "<span style='color:#9ca3af'>Start typing a bearing code, e.g. 6204.</span>";
+          return;
+        }
+        const results = products.filter(p =>
+          p.code.toLowerCase().includes(q) ||
+          p.name.toLowerCase().includes(q)
+        );
+        renderResults("codeResults", results);
+      }
+
+      function filterByDimensions() {
+        const d = parseFloat(document.getElementById("dimID").value);
+        const D = parseFloat(document.getElementById("dimOD").value);
+        const B = parseFloat(document.getElementById("dimWidth").value);
+
+        const tolerance = 0.5; // mm tolerance for matching demo data
+        const results = products.filter(p =>
+          (!isNaN(d) ? Math.abs(p.id - d) <= tolerance : true) &&
+          (!isNaN(D) ? Math.abs(p.od - D) <= tolerance : true) &&
+          (!isNaN(B) ? Math.abs(p.width - B) <= tolerance : true)
+        );
+        renderResults("dimensionResults", results);
+      }
+
+      // Mobile nav toggle
+      const navToggle = document.getElementById("navToggle");
+      const navLinks = document.getElementById("navLinks");
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+
+      // Smooth close nav on click (mobile)
+      navLinks.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") {
+          navLinks.classList.remove("open");
+        }
+      });
+
+      // Current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Initial hint texts
+      document.getElementById("codeResults").innerHTML =
+        "<span style='color:#9ca3af'>Start typing a bearing code, e.g. 6204.</span>";
+      document.getElementById("dimensionResults").innerHTML =
+        "<span style='color:#9ca3af'>Fill in one or more dimensions, then click Search.</span>";
+    </script>
+  </body>
+</html>
