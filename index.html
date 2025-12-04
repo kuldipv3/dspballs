@@ -778,64 +778,63 @@
         grid-template-columns: 1fr;
       }
     }
+	
+	.gallery {
+  padding: 2.7rem 0 2.7rem;
+}
 
-    /* Product gallery */
-    .gallery {
-      padding: 2.7rem 0 2.7rem;
-    }
+.product-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
 
-    .product-gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.4rem;
-    }
+.product-gallery-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 0.7rem;
+  border: 1px solid #e5e9f5;
+  box-shadow: 0 8px 18px rgba(15,23,42,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
 
-    .product-gallery-card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 0.7rem;
-      border: 1px solid #e5e9f5;
-      box-shadow: 0 8px 18px rgba(15,23,42,0.04);
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      text-align: center;
-      font-size: 0.8rem;
-    }
+.product-gallery-card img {
+  border-radius: 12px;
+  background: #f9fafb;
+  padding: 0.3rem;
+  max-width: 140px;
+  margin: 0 auto;
+}
 
-    .product-gallery-card img {
-      border-radius: 12px;
-      background: #f9fafb;
-      padding: 0.3rem;
-      max-width: 140px;      
-      margin: 0 auto;        
-    }
+.product-gallery-card span {
+  display: block;
+  margin-top: 0.2rem;
+  color: #374151;
+  font-weight: 500;
+}
 
-    .product-gallery-card span {
-      display: block;
-      margin-top: 0.2rem;
-      color: #374151;
-      font-weight: 500;
-    }
+@media (max-width: 1024px) {
+  .product-gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
 
-    @media (max-width: 1024px) {
-      .product-gallery-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-    }
+@media (max-width: 768px) {
+  .product-gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 
-    @media (max-width: 768px) {
-      .product-gallery-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 600px) {
-      .product-gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
+@media (max-width: 600px) {
+  .product-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
     /* CTA strip */
     .cta-strip {
@@ -1016,7 +1015,7 @@
           <a href="#search">Search</a>
           <a href="#about">About</a>
           <a href="#categories">Products</a>
-          <a href="#gallery">Gallery</a>
+		  <a href="#gallery">Gallery</a>
           <a href="#contact">Contact</a>
           <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
             Get a Quote
@@ -1026,74 +1025,501 @@
     </div>
   </header>
 
-  <!-- Hero (unchanged content from previous answer)... -->
-  <!-- I’ll keep it short here; this is the same hero, search, about and categories
-       you already have with DSP content. You can keep the one from my last file. -->
-
-  <!-- ... Hero, Search, About, Categories sections from previous file ... -->
-
-  <!-- Insert this new GALLERY section after the Categories section and before the CTA -->
-
-  <section class="gallery" id="gallery">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <h2>Precision ball gallery</h2>
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Since 1971 • Agra, India
         </div>
-        <p>
-          A visual overview of key ball types supplied by DSP — all shown as clean, high-finish spheres against neutral backgrounds to highlight quality and surface finish.
+        <h1>
+          Precision <span>steel balls</span> for gauges, valves & motion systems.
+        </h1>
+        <p class="hero-subtitle">
+          DSP manufactures precision grade balls in high carbon steel, chrome steel, stainless steels and special materials, produced to international standards and tailored to customer drawings or technical needs.
         </p>
+
+        <div class="hero-points">
+          <div class="pill">
+            <div class="pill-icon">✓</div>
+            Wide range of standard & odd sizes
+          </div>
+          <div class="pill">
+            <div class="pill-icon">✓</div>
+            Balls, gauges, springs & special parts
+          </div>
+          <div class="pill">
+            <div class="pill-icon">✓</div>
+            Over five decades of manufacturing
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="document.getElementById('search').scrollIntoView({behavior:'smooth'})">
+            Search balls →
+          </button>
+          <button class="btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+            Company background
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <div>
+            <strong>AFBMA / DIN / ISO aligned</strong>
+            Manufacturing and inspection practices refer to recognised global ball standards.
+          </div>
+          <div>
+            <strong>Customised to application</strong>
+            Balls supplied against OEM drawings or after understanding your end use.
+          </div>
+        </div>
       </div>
 
-      <div class="product-gallery-grid">
-        <div class="product-gallery-card">
-          <img src="img/dsp-steel-balls.png.png" alt="Steel balls – polished precision balls" loading="lazy">
-          <span>Steel balls</span>
-        </div>
-        <div class="product-gallery-card">
-          <img src="img/dsp-mild-steel-balls.png.png" alt="Mild steel balls in multiple sizes" loading="lazy">
-          <span>Mild steel balls</span>
-        </div>
-        <div class="product-gallery-card">
-          <img src="img/dsp-stainless-steel-balls.png.png" alt="Stainless steel precision balls" loading="lazy">
-          <span>Stainless steel balls</span>
-        </div>
-        <div class="product-gallery-card">
-          <img src="img/dsp-aisi-52100-balls.png.png" alt="AISI 52100 chrome steel bearing balls" loading="lazy">
-          <span>AISI-52100 steel balls</span>
-        </div>
-        <div class="product-gallery-card">
-          <img src="img/dsp-sae-1018-balls.png.png" alt="SAE-1018 steel balls" loading="lazy">
-          <span>SAE-1018 steel balls</span>
-        </div>
-        <div class="product-gallery-card">
-          <img src="img/dsp-sae-1010-balls.png.png" alt="SAE-1010 steel balls" loading="lazy">
-          <span>SAE-1010 steel balls</span>
-        </div>
-        <div class="product-gallery-card">
-          <img src="img/dsp-bearing-steel-balls.png.png" alt="Bearing steel balls in a bearing race" loading="lazy">
-          <span>Bearing steel balls</span>
-        </div>
-        <div class="product-gallery-card">
-          <img src="img/dsp-tool-steel-balls.png.png" alt="Tool steel balls" loading="lazy">
-          <span>Tool steel balls</span>
-        </div>
-        <div class="product-gallery-card">
-          <img src="img/dsp-brass-balls.png.png" alt="Brass balls" loading="lazy">
-          <span>Brass balls</span>
-        </div>
-        <div class="product-gallery-card">
-          <img src="img/dsp-copper-balls.png.png" alt="Copper balls" loading="lazy">
-          <span>Copper balls</span>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-bearing">
+            <div class="hero-bearing-inner"></div>
+          </div>
+          <div style="text-align:center; font-size:0.85rem; margin-bottom:0.4rem;">
+            Precision grade steel ball
+          </div>
+          <div class="hero-stats">
+            <div class="hero-kpi">
+              <strong>50+</strong>
+              Years in ball making
+            </div>
+            <div class="hero-kpi">
+              <strong>Multi-material</strong>
+              Steel, brass, copper, carbide & more
+            </div>
+          </div>
+          <div class="hero-chip">
+            <span class="hero-chip-dot"></span>
+            “Quality is a by-product of the right attitude”
+          </div>
+          <div class="hero-ring"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA, Contact, Footer, JS scripts – keep from the previous file -->
+  <!-- Search Section -->
+  <section class="search-section" id="search">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Search balls by size or application</h2>
+        </div>
+        <p>
+          Use the quick tools below to match standard balls by material and diameter, or send us brief application details and let our team suggest the right option.
+        </p>
+      </div>
 
-  <!-- (Use the same CTA, contact form, footer and JS from the last version I gave you) -->
+      <div class="search-grid">
+        <!-- Search by designation -->
+        <div class="card">
+          <h3>Search by designation</h3>
+          <small>Type a known ball size / ID, or a quick description.</small>
+          <div class="field-group">
+            <label for="codeSearch">Size / short description</label>
+            <input id="codeSearch" type="text" placeholder="e.g. 3.175 mm chrome, brass ball 5 mm" oninput="filterByCode()" />
+          </div>
+          <div class="search-results" id="codeResults"></div>
+        </div>
 
+        <!-- Search by dimensions -->
+        <div class="card">
+          <h3>Search by diameter</h3>
+          <small>Enter ball diameter in millimetres (mm).</small>
+          <div class="field-group">
+            <label for="dimID">Ball diameter (mm)</label>
+            <input id="dimID" type="number" min="0" step="0.001" placeholder="e.g. 4.763" />
+          </div>
+          <div class="field-group">
+            <label for="materialSelect">Material</label>
+            <select id="materialSelect">
+              <option value="">Any material</option>
+              <option>High carbon steel</option>
+              <option>Chrome steel</option>
+              <option>Stainless steel</option>
+              <option>Brass</option>
+              <option>Copper</option>
+              <option>Tungsten carbide</option>
+            </select>
+          </div>
+          <button class="btn-primary btn-small" onclick="filterByDimensions()">Search diameter</button>
+          <div class="search-results" id="dimensionResults"></div>
+        </div>
+
+        <!-- Quick enquiry -->
+        <div class="card">
+          <h3>Need a special ball?</h3>
+          <small>Odd sizes, special material, tight tolerances or ball plug gauges — share a few details.</small>
+          <div class="field-group">
+            <label for="quickName">Your name</label>
+            <input id="quickName" type="text" placeholder="Name" />
+          </div>
+          <div class="field-group">
+            <label for="quickEmail">Email</label>
+            <input id="quickEmail" type="email" placeholder="email@company.com" />
+          </div>
+          <div class="field-group">
+            <label for="quickMessage">Requirement</label>
+            <textarea id="quickMessage" rows="3" placeholder="Material, size range, quantity, application..."></textarea>
+          </div>
+          <button class="btn-primary btn-small" onclick="alert('Demo only – connect this form to your email or backend to receive enquiries.')">
+            Send enquiry
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div>
+        <div class="eyebrow">About DSP</div>
+        <h2>Five decades of focus on precision balls</h2>
+        <p>
+          Dular Steel Products (DSP) began manufacturing balls in the 1970s and has grown into a specialist producer of precision grade balls across multiple metals and special materials. Production is guided by recognised international ball standards, with every order aligned to drawings or detailed discussions about the end application.
+        </p>
+        <p>
+          From common carbon and chrome steel balls to stainless, brass, copper, silver and tungsten carbide, DSP also supports niche requests such as odd sizes and small runs that are hard to source in the open market.
+        </p>
+
+        <ul class="about-list">
+          <li>Precision balls in steels, non-ferrous metals and hard materials like tungsten carbide</li>
+          <li>Capability to supply unusual diameters and short-run special sizes</li>
+          <li>Support for ball plug gauges and related precision components</li>
+        </ul>
+
+        <div class="badge-row">
+          <span class="soft-pill">High carbon & chrome steel balls</span>
+          <span class="soft-pill">Stainless, brass & copper balls</span>
+          <span class="soft-pill">Tungsten carbide & specials</span>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <h3>Heritage in ball manufacturing</h3>
+        <p>
+          DSP’s founder brought decades of experience, including involvement in India’s first ball manufacturing plants. The business has since passed to the next generation while retaining the same engineering-driven mindset and emphasis on quality.
+        </p>
+        <div class="about-kpi-row">
+          <div class="about-kpi">
+            <strong>1971</strong>
+            Year unit was established
+          </div>
+          <div class="about-kpi">
+            <strong>50+ yrs</strong>
+            Cumulative shop-floor know-how
+          </div>
+        </div>
+        <div class="about-kpi-row">
+          <div class="about-kpi">
+            <strong>Multi-site</strong>
+            Capability for balls, gauges & springs
+          </div>
+          <div class="about-kpi">
+            <strong>Quality-first</strong>
+            Customer-centric QMS & attitude
+          </div>
+        </div>
+        <p style="margin-top:0.4rem;">
+          DSP is working towards environmental certifications and has introduced solar power to offset part of its energy needs.
+        </p>
+        <div class="about-stamp"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Main product lines</h2>
+        </div>
+        <p>
+          A focused portfolio built around precision balls and supporting components used in gauges, valves, bearings, instruments and motion systems.
+        </p>
+      </div>
+
+      <div class="category-grid">
+        <div class="category-card">
+          <div class="category-icon">⚪</div>
+          <h3>Precision balls</h3>
+          <p>
+            Balls in carbon steel, chrome steel, stainless steels, brass, copper, silver, tungsten carbide and other materials, supplied as per international grades or specific application needs.
+          </p>
+          <a href="#contact" class="category-link">Share ball size list →</a>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">📏</div>
+          <h3>Gauges</h3>
+          <p>
+            Ball plug gauges and related precision gauge components designed for calibration, inspection and tooling applications.
+          </p>
+          <a href="#contact" class="category-link">Ask about gauge options →</a>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">🌀</div>
+          <h3>Springs</h3>
+          <p>
+            Springs for assemblies where DSP balls are used, helping customers source matched components from one experienced supplier.
+          </p>
+          <a href="#contact" class="category-link">Discuss spring requirement →</a>
+        </div>
+        <div class="category-card">
+          <div class="category-icon">🧩</div>
+          <h3>Modified & special parts</h3>
+          <p>
+            Customised or modified balls, rollers and other small precision parts based on drawings or a clear understanding of your technical requirement.
+          </p>
+          <a href="#contact" class="category-link">Upload / email drawings →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2>Precision ball gallery</h2>
+      </div>
+      <p>
+        A visual overview of key ball types supplied by DSP — all shown as clean, high-finish spheres
+        against neutral backgrounds to highlight quality and surface finish.
+      </p>
+    </div>
+
+    <div class="product-gallery-grid">
+      <div class="product-gallery-card">
+        <img src="img/dsp-steel-balls.png.png" alt="Steel balls – polished precision balls" loading="lazy">
+        <span>Steel balls</span>
+      </div>
+      <div class="product-gallery-card">
+        <img src="img/dsp-mild-steel-balls.png.png" alt="Mild steel balls" loading="lazy">
+        <span>Mild steel balls</span>
+      </div>
+      <div class="product-gallery-card">
+        <img src="img/dsp-stainless-steel-balls.png.png" alt="Stainless steel balls" loading="lazy">
+        <span>Stainless steel balls</span>
+      </div>
+      <div class="product-gallery-card">
+        <img src="img/dsp-aisi-52100-balls.png.png" alt="AISI-52100 steel balls" loading="lazy">
+        <span>AISI-52100 steel balls</span>
+      </div>
+      <div class="product-gallery-card">
+        <img src="img/dsp-sae-1018-balls.png.png" alt="SAE-1018 steel balls" loading="lazy">
+        <span>SAE-1018 steel balls</span>
+      </div>
+      <div class="product-gallery-card">
+        <img src="img/dsp-sae-1010-balls.png.png" alt="SAE-1010 steel balls" loading="lazy">
+        <span>SAE-1010 steel balls</span>
+      </div>
+      <div class="product-gallery-card">
+        <img src="img/dsp-bearing-steel-balls.png.png" alt="Bearing steel balls" loading="lazy">
+        <span>Bearing steel balls</span>
+      </div>
+      <div class="product-gallery-card">
+        <img src="img/dsp-tool-steel-balls.png.png" alt="Tool steel balls" loading="lazy">
+        <span>Tool steel balls</span>
+      </div>
+      <div class="product-gallery-card">
+        <img src="img/dsp-brass-balls.png.png" alt="Brass balls" loading="lazy">
+        <span>Brass balls</span>
+      </div>
+      <div class="product-gallery-card">
+        <img src="img/dsp-copper-balls.png.png" alt="Copper balls" loading="lazy">
+        <span>Copper balls</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- CTA strip -->
+  <section class="cta-strip">
+    <div class="container cta-inner">
+      <div>
+        <h2>Ready to discuss your precision ball requirement?</h2>
+        <p>
+          Send sizes, material preferences or drawings and we’ll respond with options, lead time and commercial details.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          Send RFQ →
+        </button>
+        <button class="cta-ghost" onclick="window.location.href='mailto:sales@dspballs.com'">
+          Email sales@dspballs.com ✉️
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2>Share your enquiry with DSP</h2>
+        <p>
+          Provide a brief overview of your ball, gauge, spring or special component requirement. The DSP team will review your technical details and respond with feasible options.
+        </p>
+
+        <div class="contact-details">
+          <span><span class="contact-dot"></span> Phone: +91-9319166642</span>
+          <span><span class="contact-dot"></span> Email: sales@dspballs.com</span>
+          <span><span class="contact-dot"></span> Head Office: 116, Industrial Estate, Nunhai, Agra-282006 (India)</span>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form onsubmit="event.preventDefault(); alert('Form submitted (demo). Connect this to your backend / email in production.');">
+          <div class="field-group-inline">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" required placeholder="Your full name" />
+            </div>
+            <div class="field">
+              <label for="company">Company</label>
+              <input id="company" placeholder="Company / organization" />
+            </div>
+          </div>
+
+          <div class="field-group-inline">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" required placeholder="email@company.com" />
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" placeholder="With country code" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="requirement">Requirement details</label>
+            <textarea id="requirement" required placeholder="Ball material, sizes, quantity, gauges / springs / other parts, delivery expectations..."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="industry">Industry</label>
+            <select id="industry">
+              <option value="">Select industry (optional)</option>
+              <option>Automotive</option>
+              <option>Valves & fluid control</option>
+              <option>Bearings / motion</option>
+              <option>Instrumentation</option>
+              <option>General engineering</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <button class="btn-primary" type="submit">
+            Submit enquiry →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Dular Steel Products (DSP Precision Balls). All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
+        <a href="#categories">Products</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple demo dataset
+    const products = [
+      { code: "3.175 mm", name: "Chrome steel ball 3.175 mm", dia: 3.175, material: "Chrome steel", type: "Precision ball" },
+      { code: "4.763 mm", name: "High carbon steel ball 4.763 mm", dia: 4.763, material: "High carbon steel", type: "Precision ball" },
+      { code: "6.000 mm", name: "Stainless steel ball 6.000 mm", dia: 6.0, material: "Stainless steel", type: "Precision ball" },
+      { code: "8.000 mm", name: "Brass ball 8.000 mm", dia: 8.0, material: "Brass", type: "Non-ferrous ball" },
+      { code: "10.000 mm", name: "Copper ball 10.000 mm", dia: 10.0, material: "Copper", type: "Non-ferrous ball" },
+      { code: "12.700 mm", name: "Tungsten carbide ball 12.700 mm", dia: 12.7, material: "Tungsten carbide", type: "Hard material ball" }
+    ];
+
+    function renderResults(elementId, items) {
+      const container = document.getElementById(elementId);
+      if (!items.length) {
+        container.innerHTML = "<span style='color:#9ca3af'>No matching demo entries found. Send details via the enquiry form.</span>";
+        return;
+      }
+      container.innerHTML = items.map(item => `
+        <div class="result-item">
+          <div>
+            <div class="result-label">${item.code}</div>
+            <div>${item.name}</div>
+          </div>
+          <div style="text-align:right;">
+            <div><span class="tag">${item.type}</span></div>
+            <div>${item.material} • Ø ${item.dia} mm</div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function filterByCode() {
+      const q = document.getElementById("codeSearch").value.trim().toLowerCase();
+      if (q.length < 2) {
+        document.getElementById("codeResults").innerHTML =
+          "<span style='color:#9ca3af'>Start typing a size or short description, e.g. “3.175 chrome”.</span>";
+        return;
+      }
+      const results = products.filter(p =>
+        p.code.toLowerCase().includes(q) ||
+        p.name.toLowerCase().includes(q)
+      );
+      renderResults("codeResults", results);
+    }
+
+    function filterByDimensions() {
+      const d = parseFloat(document.getElementById("dimID").value);
+      const material = document.getElementById("materialSelect").value;
+      const tolerance = 0.005; // mm tolerance for this small demo dataset
+
+      const results = products.filter(p =>
+        (!isNaN(d) ? Math.abs(p.dia - d) <= tolerance : true) &&
+        (material ? p.material === material : true)
+      );
+      renderResults("dimensionResults", results);
+    }
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") {
+        navLinks.classList.remove("open");
+      }
+    });
+
+    // Current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Initial hint texts
+    document.getElementById("codeResults").innerHTML =
+      "<span style='color:#9ca3af'>Start typing a size or description, e.g. “3.175 chrome”.</span>";
+    document.getElementById("dimensionResults").innerHTML =
+      "<span style='color:#9ca3af'>Enter a diameter and optional material, then click Search.</span>";
+  </script>
 </body>
 </html>
-
